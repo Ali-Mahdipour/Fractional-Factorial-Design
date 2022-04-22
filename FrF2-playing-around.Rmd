@@ -9,6 +9,19 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+## Installing dependencies
+
+``` {r dependencies}
+list.of.packages <- c("rmarkdown","FrF2" , "devtools")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+# if you want to install papaja uncomment and run the following line.
+# devtools::install_github("crsh/papaja")
+# if you would like to export pdf using Kint and you don't already have LaTex installed uncomment
+# and run the following line
+tinytex::install_tinytex()
+```
+
 ## About This R Markdown
 
 I am writing this in order to practice FrF2 fuctions and see how it works. I also will put links to video resources on YouTube and elsewhere that I will use here.
@@ -53,9 +66,9 @@ library(FrF2)
 dsg1 <- FrF2(nfactors = 5, nruns = 8)
 summary(dsg1)
 View(dsg1)
-setwd("~/R/Fractional-Factorial-Design/exports")
+setwd("~/R/Fractional-Factorial-Design-Practice/exports")
 write.csv(dsg1, "design1.csv")
-setwd("~/R/Fractional-Factorial-Design")
+setwd("~/R/Fractional-Factorial-Design-Practice")
 ```
 ## Design Generating using number of factors and resolution
 
@@ -70,7 +83,7 @@ Here we are going to see an other example.
 dsg2 <- FrF2(nfactors = 5, resolution = 4)
 summary(dsg2)
 View(dsg2)
-setwd("~/R/Fractional-Factorial-Design/exports")
+setwd("~/R/Fractional-Factorial-Design-Practice/exports")
 write.csv(dsg1, "design2.csv")
-setwd("~/R/Fractional-Factorial-Design")
+setwd("~/R/Fractional-Factorial-Design-Practice")
 ```
