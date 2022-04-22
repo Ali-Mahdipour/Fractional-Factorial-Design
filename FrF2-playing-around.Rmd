@@ -1,0 +1,76 @@
+---
+title: "FrF2-playing-around"
+author: "Ali G. Mahdipour"
+date: '2022-04-22'
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## About This R Markdown
+
+I am writing this in order to practice FrF2 fuctions and see how it works. I also will put links to video resources on YouTube and elsewhere that I will use here.
+
+**What is FrF2?**
+
+It is an R package that creates regular and non-regular Fractional Factorial 2-level designs. Furthermore, analysis tools for Fractional Factorial designs with 2-level factors are offered (main effects and interaction plots for all factors simultaneously, cube plot for looking at the simultaneous effects of three factors, full or half normal plot, alias structure in a more readable format than with the built-in function alias).
+
+The package works together with packages DoE.base and DoE.wrapper.
+
+** Wondering what heck does Fractional Fractional Design mean?**
+
+Well this one goes beyond this R Markdown. I suggest having a look at Yong Guo's PhD Dissertation here:
+
+https://diginole.lib.fsu.edu/islandora/object/fsu:182139/datastream/PDF/view
+
+backup link: 
+
+https://drive.google.com/file/d/1ulJzb0hpKceH5HEiMnndqD2coq2PRKTN/view?usp=sharing
+
+
+## Some Usefull Video Tutorials
+
+Here you can find some useful video tutorials around FrF2 package:
+
+1- _DoE 64: Building Fractional Designs in R - FrF2 package_ by 
+Rosane Rech:
+
+https://www.youtube.com/watch?v=mOxb9OBdpSo
+
+## Generating Fractional Factorial Design 
+Here we will use the FrF2 package in order to generate a Fractional Factorial Design. 
+``` {r playing-around-1}
+# install.packages("FrF2")
+library(FrF2)
+
+# Parameters: number of runs, number of factors
+# Returns the design with higed possible resolution.
+
+# Fractional Factorial Design with 5 factors and 2^(5-2) = 8 runs
+
+dsg1 <- FrF2(nfactors = 5, nruns = 8)
+summary(dsg1)
+View(dsg1)
+setwd("~/R/Fractional-Factorial-Design/exports")
+write.csv(dsg1, "design1.csv")
+setwd("~/R/Fractional-Factorial-Design")
+```
+## Design Generating using number of factors and resolution
+
+Here we are going to see an other example. 
+``` {r playing-around-2}
+# Parameters: number of factors, resolution
+# Results in the smallest factorial design
+
+# Fractional Factorial Design with 5 factors and resolution IV
+
+
+dsg2 <- FrF2(nfactors = 5, resolution = 4)
+summary(dsg2)
+View(dsg2)
+setwd("~/R/Fractional-Factorial-Design/exports")
+write.csv(dsg1, "design2.csv")
+setwd("~/R/Fractional-Factorial-Design")
+```
