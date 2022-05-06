@@ -5,10 +5,6 @@ date: '2022-04-22'
 output: pdf_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 ## Installing dependencies
 
 ``` {r dependencies}
@@ -20,6 +16,9 @@ if(length(new.packages)) install.packages(new.packages)
 # if you would like to export pdf using Kint and you don't already have LaTex installed uncomment
 # and run the following line
 tinytex::install_tinytex()
+```
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## About This R Markdown
